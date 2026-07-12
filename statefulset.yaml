@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mystatefulset
+  namespace: project-namespace
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  serviceName: my-servicedb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: myappdb
+    spec:
+      containers:
+      - name: myappdb
+        image: shaikmustafa/phpapp:dbimage
+
+        ports:
+        - containerPort: 3306 
+          name: mysqlcontainer
+
+        envFrom:
+          - configMapRef:
+              name: mysecretdb
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
+
+        volumeMounts:
+        - name: mysql-data
+          mountPath: /usr/share/nginx/html
+
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 2Gi
