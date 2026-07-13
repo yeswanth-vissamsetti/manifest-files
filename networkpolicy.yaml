@@ -5,7 +5,7 @@ metadata:
   namespace: project-namespace
 spec:
   podSelector:
-    matchingLabels:
+    matchLabels:
       app: my-app
 
   policyTypes:
