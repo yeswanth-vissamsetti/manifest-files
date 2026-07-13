@@ -6,16 +6,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: myappdb
+      app: mysqldb
   serviceName: my-servicedb
   replicas: 1
   template:
     metadata:
       labels:
-        app: myappdb
+        app: mysqldb
     spec:
       containers:
-      - name: myappdb
+      - name: mysqldb
         image: shaikmustafa/phpapp:dbimage
 
         ports:
