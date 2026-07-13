@@ -13,6 +13,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: my-servicedb
+            name: my-service
             port: 
               number: 80  
