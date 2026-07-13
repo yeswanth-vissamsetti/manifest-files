@@ -5,8 +5,8 @@ metadata:
   namespace: project-namespace
 spec:
   podSelector:
-  matchingLabels:
-    app: my-app
+    matchingLabels:
+      app: my-app
 
   policyTypes:
   - Ingress
