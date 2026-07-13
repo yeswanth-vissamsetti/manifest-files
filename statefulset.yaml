@@ -23,7 +23,7 @@ spec:
           name: mysqlcontainer
 
         envFrom:
-          - configMapRef:
+          - secretRef:
               name: mysecretdb
 
         resources:
