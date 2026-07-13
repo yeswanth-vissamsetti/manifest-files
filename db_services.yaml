@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myappdb
+  name: mysqldb
   namespace: project-namespace
 spec:
   selector:
-    app: myappdb
+    app: mysqldb
   ports:
   - port: 3306
     targetPort: 3306
