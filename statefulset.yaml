@@ -42,7 +42,10 @@ spec:
   - metadata:
       name: mysql-data
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes:  
+        - ReadWriteOnce
+      storageClassName: gp2
+      
       resources:
         requests:
           storage: 2Gi
